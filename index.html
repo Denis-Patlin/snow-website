@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Snow</title>
+  </head>
+
+  <body>
+    <!-- START: Sprite -->
+    <svg style="display: none">
+      <symbol id="facebook" viewBox="0 0 24 24">
+        <path
+          d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-3.159 0-5.323 1.987-5.323 5.639v3.361h-3.486v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877v-2.939c.001-1.233.333-2.077 2.051-2.077z"
+        />
+      </symbol>
+
+      <symbol id="instagram" viewBox="0 0 438.536 438.536">
+        <path
+          d="M421.981,16.562C410.941,5.519,397.711,0,382.298,0H56.248C40.83,0,27.604,5.521,16.561,16.562
+         C5.52,27.6,0.001,40.828,0.001,56.243V382.29c0,15.413,5.518,28.644,16.56,39.683c11.043,11.04,24.272,16.563,39.687,16.563
+         h326.046c15.41,0,28.644-5.523,39.684-16.563c11.043-11.039,16.557-24.27,16.557-39.683V56.243
+         C438.534,40.825,433.021,27.604,421.981,16.562z M157.462,158.025c17.224-16.652,37.924-24.982,62.097-24.982
+         c24.36,0,45.153,8.33,62.381,24.982c17.228,16.655,25.837,36.785,25.837,60.386c0,23.598-8.609,43.729-25.837,60.379
+         c-17.228,16.659-38.014,24.988-62.381,24.988c-24.172,0-44.87-8.336-62.097-24.988c-17.228-16.652-25.841-36.781-25.841-60.379
+         C131.621,194.81,140.234,174.681,157.462,158.025z M388.865,370.589c0,4.945-1.718,9.083-5.141,12.416
+         c-3.433,3.33-7.519,4.996-12.282,4.996h-305.2c-4.948,0-9.091-1.666-12.419-4.996c-3.333-3.326-4.998-7.471-4.998-12.416V185.575
+         H89.08c-3.805,11.993-5.708,24.462-5.708,37.402c0,36.553,13.322,67.715,39.969,93.511c26.65,25.786,58.721,38.685,96.217,38.685
+         c24.744,0,47.583-5.903,68.527-17.703c20.937-11.807,37.486-27.839,49.676-48.112c12.183-20.272,18.274-42.4,18.274-66.38
+         c0-12.94-1.91-25.406-5.715-37.402h38.547v185.014H388.865z M388.865,115.626c0,5.52-1.903,10.184-5.716,13.99
+         c-3.805,3.809-8.466,5.711-13.989,5.711h-49.676c-5.517,0-10.185-1.903-13.99-5.711c-3.806-3.806-5.708-8.47-5.708-13.99V68.522
+         c0-5.33,1.902-9.945,5.708-13.848c3.806-3.901,8.474-5.854,13.99-5.854h49.676c5.523,0,10.185,1.952,13.989,5.854
+         c3.812,3.903,5.716,8.518,5.716,13.848V115.626z"
+        />
+      </symbol>
+
+      <symbol id="pinterest" viewBox="0 0 438.529 438.529">
+        <path
+          d="M409.141,109.203c-19.608-33.592-46.205-60.189-79.798-79.796C295.751,9.801,259.065,0,219.281,0
+		C179.5,0,142.812,9.801,109.22,29.407c-33.597,19.604-60.194,46.201-79.8,79.796C9.809,142.8,0.008,179.485,0.008,219.267
+		c0,44.35,12.085,84.611,36.258,120.767c24.172,36.172,55.863,62.912,95.073,80.232c-0.762-20.365,0.476-37.209,3.709-50.532
+		l28.267-119.348c-4.76-9.329-7.139-20.93-7.139-34.831c0-16.175,4.089-29.689,12.275-40.541
+		c8.186-10.85,18.177-16.274,29.979-16.274c9.514,0,16.841,3.14,21.982,9.42c5.142,6.283,7.705,14.181,7.705,23.7
+		c0,5.896-1.099,13.084-3.289,21.554c-2.188,8.471-5.041,18.273-8.562,29.409c-3.521,11.132-6.045,20.036-7.566,26.692
+		c-2.663,11.608-0.476,21.553,6.567,29.838c7.042,8.278,16.372,12.423,27.983,12.423c20.365,0,37.065-11.324,50.107-33.972
+		c13.038-22.655,19.554-50.159,19.554-82.514c0-24.938-8.042-45.21-24.129-60.813c-16.085-15.609-38.496-23.417-67.239-23.417
+		c-32.161,0-58.192,10.327-78.082,30.978c-19.891,20.654-29.836,45.352-29.836,74.091c0,17.132,4.854,31.505,14.56,43.112
+		c3.235,3.806,4.283,7.898,3.14,12.279c-0.381,1.143-1.141,3.997-2.284,8.562c-1.138,4.565-1.903,7.522-2.281,8.851
+		c-1.521,6.091-5.14,7.994-10.85,5.708c-14.654-6.085-25.791-16.652-33.402-31.689c-7.614-15.037-11.422-32.456-11.422-52.246
+		c0-12.753,2.047-25.505,6.14-38.256c4.089-12.756,10.468-25.078,19.126-36.975c8.663-11.9,19.036-22.417,31.123-31.549
+		c12.082-9.135,26.787-16.462,44.108-21.982s35.972-8.28,55.959-8.28c27.032,0,51.295,5.995,72.8,17.986
+		c21.512,11.992,37.925,27.502,49.252,46.537c11.327,19.036,16.987,39.403,16.987,61.101c0,28.549-4.948,54.243-14.842,77.086
+		c-9.896,22.839-23.887,40.778-41.973,53.813c-18.083,13.042-38.637,19.561-61.675,19.561c-11.607,0-22.456-2.714-32.548-8.135
+		c-10.085-5.427-17.034-11.847-20.839-19.273c-8.566,33.685-13.706,53.77-15.42,60.24c-3.616,13.508-11.038,29.119-22.27,46.819
+		c20.367,6.091,41.112,9.13,62.24,9.13c39.781,0,76.47-9.801,110.062-29.41c33.595-19.602,60.192-46.199,79.794-79.791
+		c19.606-33.599,29.407-70.287,29.407-110.065C438.527,179.485,428.74,142.795,409.141,109.203z"
+        />
+      </symbol>
+
+      <symbol id="behance" viewBox="0 0 511.958 511.958">
+        <path
+          d="M210.624,240.619c10.624-5.344,18.656-11.296,24.16-17.728c9.792-11.584,14.624-26.944,14.624-45.984
+				c0-18.528-4.832-34.368-14.496-47.648c-16.128-21.632-43.424-32.704-82.016-33.28H0v312.096h142.56
+				c16.064,0,30.944-1.376,44.704-4.192c13.76-2.848,25.664-8.064,35.744-15.68c8.96-6.624,16.448-14.848,22.4-24.544
+				c9.408-14.656,14.112-31.264,14.112-49.76c0-17.92-4.128-33.184-12.32-45.728C238.912,255.627,226.752,246.443,210.624,240.619z
+				 M63.072,150.187h68.864c15.136,0,27.616,1.632,37.408,4.864c11.328,4.704,16.992,14.272,16.992,28.864
+				c0,13.088-4.32,22.24-12.864,27.392c-8.608,5.152-19.776,7.744-33.472,7.744H63.072V150.187z M171.968,348.427
+				c-7.616,3.68-18.336,5.504-32.064,5.504H63.072v-83.232h77.888c13.568,0.096,24.128,1.888,31.68,5.248
+				c13.44,6.08,20.128,17.216,20.128,33.504C192.768,328.651,185.856,341.579,171.968,348.427z"
+        />
+        <rect x="327.168" y="110.539" width="135.584" height="38.848" />
+        <path
+          d="M509.856,263.851c-2.816-18.08-9.024-33.984-18.688-47.712c-10.592-15.552-24.032-26.944-40.384-34.144
+				c-16.288-7.232-34.624-10.848-55.04-10.816c-34.272,0-62.112,10.72-83.648,32c-21.472,21.344-32.224,52.032-32.224,92.032
+				c0,42.656,11.872,73.472,35.744,92.384c23.776,18.944,51.232,28.384,82.4,28.384c37.728,0,67.072-11.232,88.032-33.632
+				c13.408-14.144,20.992-28.064,22.656-41.728H446.24c-3.616,6.752-7.808,12.032-12.608,15.872
+				c-8.704,7.04-20.032,10.56-33.92,10.56c-13.216,0-24.416-2.912-33.76-8.704c-15.424-9.28-23.488-25.536-24.512-48.672h170.464
+				C512.16,289.739,511.52,274.411,509.856,263.851z M342.976,269.835c2.24-15.008,7.68-26.912,16.32-35.712
+				c8.64-8.768,20.864-13.184,36.512-13.216c14.432,0,26.496,4.128,36.32,12.416c9.696,8.352,15.168,20.48,16.288,36.512H342.976z"
+        />
+      </symbol>
+
+      <symbol id="google-plus" viewBox="0 0 604.35 604.35">
+        <path
+          d="M516.375,255v-76.5h-51V255h-76.5v51h76.5v76.5h51V306h76.5v-51H516.375z M320.025,341.7l-28.051-20.4
+			c-10.2-7.649-20.399-17.85-20.399-35.7s12.75-33.15,25.5-40.8c33.15-25.5,66.3-53.55,66.3-109.65c0-53.55-33.15-84.15-51-99.45
+			h43.35l30.6-35.7h-158.1c-112.2,0-168.3,71.4-168.3,147.9c0,58.65,45.9,122.4,127.5,122.4h20.4c-2.55,7.65-10.2,20.4-10.2,33.15
+			c0,25.5,10.2,35.7,22.95,51c-35.7,2.55-102,10.2-150.45,40.8c-45.9,28.05-58.65,66.3-58.65,94.35
+			c0,58.65,53.55,114.75,168.3,114.75c137.7,0,204.001-76.5,204.001-150.449C383.775,400.35,355.725,372.3,320.025,341.7z
+			 M126.225,109.65c0-56.1,33.15-81.6,68.85-81.6c66.3,0,102,89.25,102,140.25c0,66.3-53.55,79.05-73.95,79.05
+			C159.375,247.35,126.225,168.3,126.225,109.65z M218.024,568.65c-84.15,0-137.7-38.25-137.7-94.351c0-56.1,51-73.95,66.3-81.6
+			c33.15-10.2,76.5-12.75,84.15-12.75s12.75,0,17.85,0c61.2,43.35,86.7,61.2,86.7,102C335.324,530.4,286.875,568.65,218.024,568.65z
+			"
+        />
+      </symbol>
+
+      <symbol id="twitter" viewBox="0 0 512 512">
+        <path
+          d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016
+			c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992
+			c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056
+			c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152
+			c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792
+			c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44
+			C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568
+			C480.224,136.96,497.728,118.496,512,97.248z"
+        />
+      </symbol>
+    </svg>
+    <!-- END:Sprite -->
+
+    <!-- START: Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="header__logo">
+            <a href="#"><img src="img/logo.png" alt="" /></a>
+          </div>
+          <nav class="nav">
+            <a href="" class="nav-link">About</a>
+            <a href="" class="nav-link">Contact</a>
+            <a href="" class="nav-link">Portfolio</a>
+            <a href="" class="nav-link">Blog</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- END: Header -->
+
+    <!-- START: Intro -->
+    <div class="intro">
+      <div class="container">
+        <div class="intro__inner">
+          <div class="intro-subtitle">new branding agency</div>
+          <div class="intro-title">We are about to change the way</div>
+          <div class="intro-text">you publish on web</div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Intro -->
+
+    <!-- START: About -->
+    <div class="about">
+      <div class="container">
+        <div class="about__inner">
+          <h1 class="about__title">About Our Agency</h1>
+          <p class="about__text">
+            We are a new design studio based in USA. We have over 20 years of
+            combined experience, and know a thing or two about designing
+            websites and mobile apps. Clever use of technology and lean
+            processes enable us to work faster and smarter.
+          </p>
+          <img class="about__signature" src="img/signature.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- END: About -->
+
+    <!-- START: Statistic -->
+    <div class="statistic">
+      <div class="container">
+        <div class="statistic__inner">
+          <div class="statistic__item">
+            <img
+              class="statistic__photo"
+              src="img/statistic/portfolio.png"
+              alt=""
+            />
+            <div class="statistic__numbers">
+              <div class="statistic__count">548</div>
+              <div class="statistic__text">projects completed</div>
+            </div>
+          </div>
+          <div class="statistic__item">
+            <img
+              class="statistic__photo"
+              src="img/statistic/clock.png"
+              alt=""
+            />
+            <div class="statistic__numbers">
+              <div class="statistic__count">1465</div>
+              <div class="statistic__text">working hours</div>
+            </div>
+          </div>
+          <div class="statistic__item">
+            <img class="statistic__photo" src="img/statistic/star.png" alt="" />
+            <div class="statistic__numbers">
+              <div class="statistic__count">612</div>
+              <div class="statistic__text">positive feedbacks</div>
+            </div>
+          </div>
+          <div class="statistic__item">
+            <div>
+              <img
+                class="statistic__photo"
+                src="img/statistic/like.png"
+                alt=""
+              />
+            </div>
+            <div class="statistic__numbers">
+              <div class="statistic__count">735</div>
+              <div class="statistic__text">happy clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Statistic -->
+
+    <!-- START: Projects -->
+    <div class="projects">
+      <div class="container">
+        <div class="projects__inner">
+          <h1 class="projects__title">Best projects</h1>
+          <p class="projects__text">
+            Donec orci sem, pretium ac dolor et, faucibus faucibus mauris.
+            Etiam,pellentesque faucibus. Vestibulum gravida volutpat ipsum non
+            ultrices.
+          </p>
+          <!-- START: Showcase -->
+          <div class="projects__showcase">
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+            <div class="showcase__item">
+              <img
+                class="showcase__photo"
+                src="https://fakeimg.pl/370x250/"
+                alt=""
+              />
+              <div class="showcase__content">
+                <div class="showcase__title">Vinil Record</div>
+                <div class="showcase__subtitle">photography</div>
+              </div>
+            </div>
+          </div>
+          <!-- END: Showcase -->
+        </div>
+      </div>
+    </div>
+    <!-- END: Projects -->
+
+    <!-- START: Reviews -->
+    <div class="reviews">
+      <div class="container">
+        <div class="reviews__inner"></div>
+      </div>
+    </div>
+    <!-- END: Reviews -->
+
+    <!-- <p class="reviews__text">
+      “ Outstanding job and exceeded all expectations. It was a pleasure
+      to work with them on a sizable first project and am looking forward
+      to start the next one asap.”
+    </p>
+    <h1 class="reviews__author">Michael Hopkins</h1>
+    <div class="reviews__btn">
+      <a href="#" class="btn"></a>
+      <a href="#" class="btn"></a>
+      <a href="#" class="btn"></a> -->
+
+    <!-- START: Companies -->
+    <div class="companies">
+      <div class="container">
+        <div class="companies__inner">
+          <div class="companies__item">
+            <img class="companies__logo" src="img/companies/1.png" alt="" />
+          </div>
+          <div class="companies__item">
+            <img class="companies__logo" src="img/companies/2.png" alt="" />
+          </div>
+          <div class="companies__item">
+            <img class="companies__logo" src="img/companies/3.png" alt="" />
+          </div>
+          <div class="companies__item">
+            <img class="companies__logo" src="img/companies/4.png" alt="" />
+          </div>
+          <div class="companies__item">
+            <img class="companies__logo" src="img/companies/5.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Companies -->
+
+    <!-- START: Blog -->
+    <div class="blog">
+      <div class="container">
+        <div class="blog__inner">
+          <div class="blog__title">Latest Blog</div>
+          <p class="blog__text">
+            Donec orci sem, pretium ac dolor et, faucibus faucibus mauris.
+            Etiam,pellentesque faucibus. Vestibulum gravida volutpat ipsum non
+            ultrices.
+          </p>
+          <div class="blog__card">
+            <div class="card__item">
+              <div class="card__img">
+                <img src="https://fakeimg.pl/370x240/" alt="" />
+                <div class="card__category">Nature</div>
+              </div>
+              <div class="card__information">
+                <div class="card__title">Something I need to tell you</div>
+                <div class="card_date">May 16, 2016</div>
+                <div class="card__text">
+                  Mauris sed odio tincidunt, volutpat augue, commodo dui.
+                  Phasellus hendrerit condi ntum vehicula.
+                </div>
+              </div>
+            </div>
+            <div class="card__item">
+              <div class="card__img">
+                <img src="https://fakeimg.pl/370x240/" alt="" />
+                <div class="card__category">Branding</div>
+              </div>
+              <div class="card__information">
+                <div class="card__title">Are you doing The Right Way?</div>
+                <div class="card_date">May 28, 2016</div>
+                <div class="card__text">
+                  Curabitur et diam ut magna pulvinar euis mod. Sed metus purus,
+                  ornare id moltie, laoreet vitae magna.
+                </div>
+              </div>
+            </div>
+            <div class="card__item">
+              <div class="card__img">
+                <img src="https://fakeimg.pl/370x240/" alt="" />
+                <div class="card__category">design</div>
+              </div>
+              <div class="card__information">
+                <div class="card__title">Why you should Always First</div>
+                <div class="card_date">june 01, 2016</div>
+                <div class="card__text">
+                  Mauris sed odio tincidunt, volutpat augue, commodo dui.
+                  Phasellus hendrerit condi ntum vehicula.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card__btn">
+            <a href="#" class="btn btn--black"></a>
+            <a href="#" class="btn btn--black"></a>
+            <a href="#" class="btn btn--black"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Blog -->
+
+    <!-- START: Contact -->
+    <div class="contact">
+      <div class="container">
+        <div class="contact__inner">
+          <div class="contact__info">
+            <div class="contact__title">Contact Info:</div>
+            <div class="contact__text">
+              Praesent interdum congue mauris, et fringilla lacus pel vitae.
+              Quisque nisl mauris, aliquam eu ultrices vel, conse vitae sapien
+              at imperdiet risus. Quisque cursus risus id. fermentum, in auctor
+              quam consectetur.
+            </div>
+            <address class="contact__adress details">
+              <div>Address: <span>10111 Santa Monica Boulevard, LA</span></div>
+            </address>
+            <div class="contact__phone details">
+              <div>
+                Phone:
+                <a href="tel:44-987-065-908" class="link__phone link"
+                  >+44 987 065 908</a
+                >
+              </div>
+            </div>
+            <div class="contact__email details">
+              Email:
+              <a href="mailto:info@Example.com" class="link__email link">
+                info@Example.com</a
+              >
+            </div>
+            <div class="contact__fax details">
+              Fax:
+              <a href="fax:+44.987.065.909" class="link__fax link"
+                >+44 987 065 909</a
+              >
+            </div>
+
+            <!-- FORM -->
+          </div>
+          <div class="contact__form">
+            <form action="#" method="POST" class="form">
+              <div class="form__vertical__gap">
+                <div class="form__name">
+                  <input
+                    placeholder="Your Name"
+                    type="text"
+                    class="input__name remove--border"
+                  />
+                </div>
+                <div class="form__email">
+                  <input
+                    placeholder="Your Email"
+                    type="email"
+                    class="input__email remove--border"
+                  />
+                </div>
+              </div>
+              <div class="form__title">
+                <input
+                  placeholder="Your Title"
+                  type="text"
+                  class="input__title remove--border"
+                />
+              </div>
+              <div class="form__email">
+                <textarea
+                  placeholder="Your Comment"
+                  name="comment"
+                  cols="30"
+                  rows="10"
+                  class="text__area remove--border"
+                ></textarea>
+              </div>
+              <div>
+                <button type="submit" class="submit__btn">Send Message</button>
+              </div>
+            </form>
+            <!-- /FORM -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- START: Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__block">
+            <div class="footer__title">About Us</div>
+            <p class="footer___text">
+              Aenean mattis augue in arcu tempor bibendum. Nam euismod facilisis
+              magna, quis pharetra turpis molestie eu. Integer feugiat arcu sit
+              amet leo ullamcorper feugiat efficitur.
+            </p>
+            <div class="social">
+              <a class="social__item" href="#" target="_blank">
+                <svg class="social__icon">
+                  <use xlink:href="#facebook"></use>
+                </svg>
+              </a>
+              <a class="social__item" href="#" target="_blank">
+                <svg class="social__icon">
+                  <use xlink:href="#twitter"></use>
+                </svg>
+              </a>
+              <a class="social__item" href="#" target="_blank">
+                <svg class="social__icon">
+                  <use xlink:href="#google-plus"></use>
+                </svg>
+              </a>
+              <a class="social__item" href="#" target="_blank">
+                <svg class="social__icon">
+                  <use xlink:href="#behance"></use>
+                </svg>
+              </a>
+              <a class="social__item" href="#" target="_blank">
+                <svg class="social__icon">
+                  <use xlink:href="#pinterest"></use>
+                </svg>
+              </a>
+              <a class="social__item" href="#" target="_blank">
+                <svg class="social__icon">
+                  <use xlink:href="#instagram"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer__block">
+            <div class="footer__title">Latest Twits</div>
+            <div class="footer__twits">
+              <div class="twits__item">
+                <svg class="twits__icon">
+                  <use xlink:href="#twitter"></use>
+                </svg>
+              </div>
+              <div class="twits__text">
+                Duis eget finibus nibh. Vivamus sagittis vulputate risus ac
+                tincidunt.
+              </div>
+            </div>
+            <div class="footer__twits">
+              <div class="twits__item">
+                <svg class="twits__icon">
+                  <use xlink:href="#twitter"></use>
+                </svg>
+              </div>
+              <div class="twits__text">
+                Nam semper tortor sit amet arcu malesu ada, a sagittis tellus
+                facilisis.
+              </div>
+            </div>
+            <div class="footer__twits">
+              <div class="twits__item">
+                <svg class="twits__icon">
+                  <use xlink:href="#twitter"></use>
+                </svg>
+              </div>
+              <div class="twits__text">
+                Etiam cursus, tortor id pretium tincidunt, justo leo porta
+                magna.
+              </div>
+            </div>
+          </div>
+          <div class="footer__block">
+            <div class="footer__title">Instagram</div>
+            <div class="inst__items">
+              <div class="inst__photo">
+                <img src="https://fakeimg.pl/85x85/?text=Photo" alt="" />
+              </div>
+              <div class="inst__photo">
+                <img src="https://fakeimg.pl/85x85/?text=Photo" alt="" />
+              </div>
+              <div class="inst__photo">
+                <img src="https://fakeimg.pl/85x85/?text=Photo" alt="" />
+              </div>
+              <div class="inst__photo">
+                <img src="https://fakeimg.pl/85x85/?text=Photo" alt="" />
+              </div>
+              <div class="inst__photo">
+                <img src="https://fakeimg.pl/85x85/?text=Photo" alt="" />
+              </div>
+              <div class="inst__photo">
+                <img src="https://fakeimg.pl/85x85/?text=Photo" alt="" />
+              </div>
+              <div class="inst__photo">
+                <img src="https://fakeimg.pl/85x85/?text=Photo" alt="" />
+              </div>
+              <div class="inst__photo">
+                <img src="https://fakeimg.pl/85x85/?text=Photo" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="copyright">
+      <div class="container">
+        <div class="copyright__inner">
+          <div class="copyright__text">
+            © 2021. Created by Unvab. Code by Denis Patlin.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
